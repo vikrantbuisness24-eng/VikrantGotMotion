@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aura Lights</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+color:white;
+text-align:center;
+
+/* PREMIUM DARK BACKGROUND */
+background:
+radial-gradient(circle at 20% 30%, rgba(255,215,0,0.05), transparent 40%),
+radial-gradient(circle at 80% 70%, rgba(255,215,0,0.04), transparent 40%),
+linear-gradient(135deg, #0c0c0c, #1a1a1a 40%, #111 100%);
+
+background-attachment: fixed;
+}
+
+/* HEADER */
+header{
+padding:25px;
+font-size:32px;
+font-weight:bold;
+background:#111;
+border-bottom:3px solid gold;
+letter-spacing:2px;
+}
+
+/* DEAL BAR */
+.deal-bar{
+background:#b30000;
+padding:14px;
+font-weight:bold;
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+box-shadow:0 0 20px red;
+font-size:18px;
+}
+
+#timer{
+color:yellow;
+}
+
+/* CLOUD TITLE */
+.cloud-title{
+display:inline-block;
+margin-top:60px;
+padding:18px 45px;
+background:white;
+color:black;
+font-size:22px;
+font-weight:bold;
+border-radius:50px;
+position:relative;
+box-shadow:0 8px 20px rgba(255,255,255,0.4);
+}
+
+.cloud-title::before,
+.cloud-title::after{
+content:"";
+position:absolute;
+background:white;
+border-radius:50%;
+z-index:-1;
+}
+
+.cloud-title::before{
+width:45px;
+height:45px;
+top:-18px;
+left:25px;
+}
+
+.cloud-title::after{
+width:35px;
+height:35px;
+top:-12px;
+right:30px;
+}
+
+/* GRID */
+.products{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:35px;
+padding:60px 50px;
+max-width:1400px;
+margin:auto;
+}
+
+.product{
+background:#1c1c2e;
+border-radius:20px;
+overflow:hidden;
+transition:0.4s;
+position:relative;
+}
+
+.product:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px gold, 0 0 80px rgba(255,215,0,0.6);
+}
+
+/* BIG RECTANGLE IMAGES */
+.product img{
+width:100%;
+height:420px;
+object-fit:cover;
+display:block;
+}
+
+.product-info{
+padding:20px;
+}
+
+.product h3{
+margin:10px 0;
+font-size:20px;
+}
+
+.price{
+color:#00ffcc;
+font-size:18px;
+}
+
+.products a{
+text-decoration:none;
+color:white;
+}
+
+/* FOOTER */
+.footer{
+margin-top:80px;
+padding:40px 20px;
+background:#111;
+border-top:2px solid gold;
+}
+
+.footer-content{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:50px;
+flex-wrap:wrap;
+max-width:1000px;
+margin:auto;
+}
+
+.footer .left,
+.footer .right{
+font-size:16px;
+}
+
+.divider{
+width:2px;
+height:70px;
+background:gold;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+.products{
+grid-template-columns:1fr;
+padding:40px 20px;
+}
+.product img{
+height:300px;
+}
+.footer-content{
+flex-direction:column;
+gap:20px;
+}
+.divider{
+display:none;
+}
+}
+</style>
+</head>
+
+<body>
+
+<header>✨ Aura Lights ✨</header>
+
+<div class="deal-bar">
+🔥 LIMITED TIME DEAL – <span id="timer"></span> LEFT
+</div>
+
+<div class="cloud-title">
+Our Products
+</div>
+
+<div class="products">
+
+<a href="dolphin.html">
+<div class="product">
+<img src="heart-dolphin.png">
+<div class="product-info">
+<h3>Dolphin Crystal Lamp</h3>
+<div class="price">₹249</div>
+</div>
+</div>
+</a>
+
+<a href="lakshmi.html">
+<div class="product">
+<img src="lakshmi.png">
+<div class="product-info">
+<h3>Lakshmi Mata Crystal Lamp</h3>
+<div class="price">₹299</div>
+</div>
+</div>
+</a>
+
+</div>
+
+<div class="footer">
+    <div class="footer-content">
+        <div class="left">
+            Made with ❤️ and Passion
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="right">
+            Contact Support:<br>
+            📞 +91 8853071784<br>
+            📧 vikrantbuisness24@gmail.com
+        </div>
+    </div>
+</div>
+
+<script>
+var countDownDate = new Date().getTime() + (18 * 60 * 60 * 1000);
+
+var x = setInterval(function() {
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("timer").innerHTML =
+hours + "h : " + minutes + "m : " + seconds + "s";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("timer").innerHTML = "EXPIRED";
+}
+}, 1000);
+</script>
+
+</body>
+</html>
